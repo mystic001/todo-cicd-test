@@ -1,6 +1,6 @@
 name: CI/CD fir react ToDo
 
-'on':
+on:
   push:
     branches:
       - main
