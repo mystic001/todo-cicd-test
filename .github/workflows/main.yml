@@ -1,10 +1,9 @@
-name: CI/CD fir react ToDo
+name: CI/CD for react ToDo
 
 on:
   push:
     branches:
-      - main
-
+      - master
 jobs:
   # build job
   build:
