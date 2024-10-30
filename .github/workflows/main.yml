@@ -17,19 +17,19 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: |
-          cd todo
+          cd todo-cicd-test
           npm install
 
       - name: Build Project
         run: |
-            cd todo
+            cd todo-cicd-test
             npm run build
 
       - name: Upload artifact to enable deployment
         uses: actions/upload-artifact@v3
         with:
-          name: production file
-          path: ./todo/build
+          name: production-file
+          path: ./todo-cicd-test/build
 
   # Deploy Job 
   deploy:
@@ -40,11 +40,11 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: production file
-          path: ./todo/build
+          name: production-file
+          path: ./todo-cicd-test/build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.KEY }}
-          publish_dir: ./todo/build
+          publish_dir: ./todo-cicd-test/build
